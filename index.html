@@ -28,7 +28,7 @@
 				<div class = "text">About</div>
 				Originally written to help visualize the algorithm during my summer internship at Preface, this python program uses the random library to generate random coordinates on a plot and Matplotlib to visualize the data. No other libraries were used.<br><br>
 				
-				<b><a href = "https://en.wikipedia.org/wiki/K-means_clustering" target = "_blank">K-means Clustering</a></b> is a type of machine learning algorithm which attempts to group data into clusters using unsupervised learning. The demo video shows 1000 points being randomly placed on a 100 by 100 coordinate plane and being grouped into 3 clusters.<br><br>
+				<b><a href = "https://en.wikipedia.org/wiki/K-means_clustering" target = "_blank">K-means Clustering</a></b> is a type of machine learning algorithm which attempts to group data into K clusters (K is usually determined by methods such as the <b><a href = "https://en.wikipedia.org/wiki/Elbow_method_(clustering)#:~:text=In%20cluster%20analysis%2C%20the%20elbow,number%20of%20clusters%20to%20use." target = "_blank">Elbow Method</a></b>) using unsupervised learning. The demo video shows 1000 points being randomly placed on a 100 by 100 coordinate plane and being grouped into 3 clusters.<br><br>
 
 				Click <b><a href = "https://colab.research.google.com/drive/1S5pPYPP7PmFtYkAM9OL5teKKtShp0O0Z?usp=sharing" target = "_blank"> here </a></b> for the 2-dimensional version which is shown in the video. (To run the program on Google Colab simply click <b>Runtime</b> --> <b>Run all</b>)
 				<br><br>
@@ -39,26 +39,243 @@
 		<br>
 		<div class = "explanation">
 			<div class = "explain">
-				<div class = "text">A short explanation</div>
-				The program is written such that 12 points are randomly generated along an interval between 0 and 100. The goal of the K-means Clustering algorithm is to group these points into 3 clusters without any information except their locations. The locations are as follows:
+				<div class = "text">Explaining the Algorithm</div>
+				The program is written such that 12 points are randomly generated along an interval between 0 and 100. The goal of the written K-means Clustering algorithm is to group these points into 3 clusters without any information except their locations. The locations are as follows:<br><br>
 				<ul class = "shift">
 					<li>Point A: <b>0</b></li>
-					<li>Point B: <b>1</b></li>
-					<li>Point C: <b>14</b></li>
-					<li>Point D: <b>24</b></li>
-					<li>Point E: <b>25</b></li>
-					<li>Point F: <b>29</b></li>
-					<li>Point G: <b>50</b></li>
-					<li>Point H: <b>58</b></li>
-					<li>Point I: <b>61</b></li>
-					<li>Point J: <b>66</b></li>
+					<li>Point B: <b>9</b></li>
+					<li>Point C: <b>13</b></li>
+					<li>Point D: <b>27</b></li>
+					<li>Point E: <b>30</b></li>
+					<li>Point F: <b>32</b></li>
+					<li>Point G: <b>40</b></li>
+					<li>Point H: <b>43</b></li>
+					<li>Point I: <b>44</b></li>
+					<li>Point J: <b>48</b></li>
 					<li>Point K: <b>81</b></li>
-					<li>Point L: <b>93</b></li>
+					<li>Point L: <b>84</b></li>
 				</ul>
 			</div>
 			<div class = "pic1">
 				<img src = "images/cluster1.png" class = "pic" width = "100%" alt = "">
 			</div>	
+		</div>
+		<br>
+		<div class = "iteration0">
+			<div class = "explain2">
+				<div class = "text">Initializing the Centroids</div>
+				In order to begin grouping the points together, we will initialize 3 centroid points at random locations on the interval. Each centroid represents a cluster. The centroid locations were initialized as follows:<br><br>
+				<ul class = "shift">
+					<li>Yellow Centroid: <b>20</b></li>
+					<li>Blue Centroid: <b>46</b></li>
+					<li>Green Centroid: <b>85</b></li>
+				</ul>
+				<br>
+				The next step is to find the centroid closest to each point.
+				<li>Point A: <b>0</b> - Closest Centroid: Yellow (<b>20</b>)</li>
+				<li>Point B: <b>9</b> - Closest Centroid: Yellow (<b>20</b>)</li>
+				<li>Point C: <b>13</b> - Closest Centroid: Yellow (<b>20</b>)</li>
+				<li>Point D: <b>27</b> - Closest Centroid: Yellow (<b>20</b>)</li>
+				<li>Point E: <b>30</b> - Closest Centroid: Yellow (<b>20</b>)</li>
+				<li>Point F: <b>32</b> - Closest Centroid: Yellow (<b>20</b>)</li>
+				<li>Point G: <b>40</b> - Closest Centroid: Blue (<b>46</b>)</li>
+				<li>Point H: <b>43</b> - Closest Centroid: Blue (<b>46</b>)</li>
+				<li>Point I: <b>44</b> - Closest Centroid: Blue (<b>46</b>)</li>
+				<li>Point J: <b>48</b> - Closest Centroid: Blue (<b>46</b>)</li>
+				<li>Point K: <b>81</b> - Closest Centroid: Green (<b>85</b>)</li>
+				<li>Point L: <b>84</b> - Closest Centroid: Green (<b>85</b>)</li>
+				<br>
+				We will then find the mean location of the data points under each centroid.
+				<br>Yellow Centroid:<br>
+				<ul class = "shift">
+					<li>(0 + 9 + 13 + 27 + 30 + 32) ÷ 6 = <b>18.5</b></li>
+				</ul>
+				Blue Centroid:<br>
+				<ul class = "shift">
+					<li>(40 + 43 + 44 + 48) ÷ 4 = <b>43.75</b></li>
+				</ul>
+				Green Centroid:<br>
+				<ul class = "shift">
+					<li>(81 + 84) ÷ 2 = <b>82.5</b></li>
+				</ul>
+			</div>
+			<div class = "pic2">
+				<img src = "images/cluster2.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "iteration1">
+			<div class = "explain3">
+				<div class = "text">Iteration 1</div>
+				The centroids will move to updated locations based on the previous computed values: the mean location of the data points under each of them.<br><br>
+				<ul class = "shift">
+					<li>Yellow Centroid: <b>18.5</b></li>
+					<li>Blue Centroid: <b>43.75</b></li>
+					<li>Green Centroid: <b>82.5</b></li>
+				</ul>
+				<br>
+				Again find find the centroid closest to each point.
+				<li>Point A: <b>0</b> - Closest Centroid: Yellow (<b>18.5</b>)</li>
+				<li>Point B: <b>9</b> - Closest Centroid: Yellow (<b>18.5</b>)</li>
+				<li>Point C: <b>13</b> - Closest Centroid: Yellow (<b>18.5</b>)</li>
+				<li>Point D: <b>27</b> - Closest Centroid: Yellow (<b>18.5</b>)</li>
+				<li>Point E: <b>30</b> - Closest Centroid: Yellow (<b>18.5</b>)</li>
+				<li>Point F: <b>32</b> - Closest Centroid: Blue (<b>43.75</b>)</li>
+				<li>Point G: <b>40</b> - Closest Centroid: Blue (<b>43.75</b>)</li>
+				<li>Point H: <b>43</b> - Closest Centroid: Blue (<b>43.75</b>)</li>
+				<li>Point I: <b>44</b> - Closest Centroid: Blue (<b>43.75</b>)</li>
+				<li>Point J: <b>48</b> - Closest Centroid: Blue (<b>43.75</b>)</li>
+				<li>Point K: <b>81</b> - Closest Centroid: Green (<b>82.5</b>)</li>
+				<li>Point L: <b>84</b> - Closest Centroid: Green (<b>82.5</b>)</li>
+				<br>Again find the mean location of the data points under each centroid.
+				<br>Yellow Centroid:<br>
+				<ul class = "shift">
+					<li>(0 + 9 + 13 + 27 + 30) ÷ 5 = <b>15.8</b></li>
+				</ul>
+				Blue Centroid:<br>
+				<ul class = "shift">
+					<li>(32 + 40 + 43 + 44 + 48) ÷ 5 = <b>41.4</b></li>
+				</ul>
+				Green Centroid:<br>
+				<ul class = "shift">
+					<li>(81 + 84) ÷ 2 = <b>82.5</b></li>
+				</ul>
+			</div>
+			<div class = "pic3">
+				<img src = "images/cluster3.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "iteration2">
+			<div class = "explain4">
+				<div class = "text">Iteration 2</div>
+				Repeat the process until convergence - when the centroids stop moving.<br><br>
+				<ul class = "shift">
+					<li>Yellow Centroid: <b>15.8</b></li>
+					<li>Blue Centroid: <b>41.4</b></li>
+					<li>Green Centroid: <b>82.5</b></li>
+				</ul>
+				<br>
+				<li>Point A: <b>0</b> - Closest Centroid: Yellow (<b>15.8</b>)</li>
+				<li>Point B: <b>9</b> - Closest Centroid: Yellow (<b>15.8</b>)</li>
+				<li>Point C: <b>13</b> - Closest Centroid: Yellow (<b>15.8</b>)</li>
+				<li>Point D: <b>27</b> - Closest Centroid: Yellow (<b>15.8</b>)</li>
+				<li>Point E: <b>30</b> - Closest Centroid: Blue (<b>41.4</b>)</li>
+				<li>Point F: <b>32</b> - Closest Centroid: Blue (<b>41.4</b>)</li>
+				<li>Point G: <b>40</b> - Closest Centroid: Blue (<b>41.4</b>)</li>
+				<li>Point H: <b>43</b> - Closest Centroid: Blue (<b>41.4</b>)</li>
+				<li>Point I: <b>44</b> - Closest Centroid: Blue (<b>41.4</b>)</li>
+				<li>Point J: <b>48</b> - Closest Centroid: Blue (<b>41.4</b>)</li>
+				<li>Point K: <b>81</b> - Closest Centroid: Green (<b>82.5</b>)</li>
+				<li>Point L: <b>84</b> - Closest Centroid: Green (<b>82.5</b>)</li>
+				<br>Yellow Centroid:<br>
+				<ul class = "shift">
+					<li>(0 + 9 + 13 + 27) ÷ 4 = <b>12.25</b></li>
+				</ul>
+				Blue Centroid:<br>
+				<ul class = "shift">
+					<li>(30 + 32 + 40 + 43 + 44 + 48) ÷ 6 = <b>39.5</b></li>
+				</ul>
+				Green Centroid:<br>
+				<ul class = "shift">
+					<li>(81 + 84) ÷ 2 = <b>82.5</b></li>
+				</ul>
+			</div>
+			<div class = "pic4">
+				<img src = "images/cluster4.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "iteration3">
+			<div class = "explain5">
+				<div class = "text">Iteration 3</div>
+				Repeat the process until convergence - when the centroids stop moving.<br><br>
+				<ul class = "shift">
+					<li>Yellow Centroid: <b>12.25</b></li>
+					<li>Blue Centroid: <b>39.5</b></li>
+					<li>Green Centroid: <b>82.5</b></li>
+				</ul>
+				<br>
+				<li>Point A: <b>0</b> - Closest Centroid: Yellow (<b>12.25</b>)</li>
+				<li>Point B: <b>9</b> - Closest Centroid: Yellow (<b>12.25</b>)</li>
+				<li>Point C: <b>13</b> - Closest Centroid: Yellow (<b>12.25</b>)</li>
+				<li>Point D: <b>27</b> - Closest Centroid: Blue (<b>39.5</b>)</li>
+				<li>Point E: <b>30</b> - Closest Centroid: Blue (<b>39.5</b>)</li>
+				<li>Point F: <b>32</b> - Closest Centroid: Blue (<b>39.5</b>)</li>
+				<li>Point G: <b>40</b> - Closest Centroid: Blue (<b>39.5</b>)</li>
+				<li>Point H: <b>43</b> - Closest Centroid: Blue (<b>39.5</b>)</li>
+				<li>Point I: <b>44</b> - Closest Centroid: Blue (<b>39.5</b>)</li>
+				<li>Point J: <b>48</b> - Closest Centroid: Blue (<b>39.5</b>)</li>
+				<li>Point K: <b>81</b> - Closest Centroid: Green (<b>82.5</b>)</li>
+				<li>Point L: <b>84</b> - Closest Centroid: Green (<b>82.5</b>)</li>
+				<br>Yellow Centroid:<br>
+				<ul class = "shift">
+					<li>(0 + 9 + 13) ÷ 3 = <b>7.3333</b></li>
+				</ul>
+				Blue Centroid:<br>
+				<ul class = "shift">
+					<li>(27 + 30 + 32 + 40 + 43 + 44 + 48) ÷ 7 = <b>37.7143</b></li>
+				</ul>
+				Green Centroid:<br>
+				<ul class = "shift">
+					<li>(81 + 84) ÷ 2 = <b>82.5</b></li>
+				</ul>
+			</div>
+			<div class = "pic5">
+				<img src = "images/cluster5.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "iteration4">
+			<div class = "explain6">
+				<div class = "text">Iteration 4</div>
+				Repeat the process until convergence - when the centroids stop moving.<br><br>
+				<ul class = "shift">
+					<li>Yellow Centroid: <mark><b>7.3333</b></mark></li>
+					<li>Blue Centroid: <mark><b>37.7143</b></mark></li>
+					<li>Green Centroid: <mark><b>82.5</b></mark></li>
+				</ul>
+				<br>
+				<li>Point A: <b>0</b> - Closest Centroid: Yellow (<b>7.3333</b>)</li>
+				<li>Point B: <b>9</b> - Closest Centroid: Yellow (<b>7.3333</b>)</li>
+				<li>Point C: <b>13</b> - Closest Centroid: Yellow (<b>7.3333</b>)</li>
+				<li>Point D: <b>27</b> - Closest Centroid: Blue (<b>37.7143</b>)</li>
+				<li>Point E: <b>30</b> - Closest Centroid: Blue (<b>37.7143</b>)</li>
+				<li>Point F: <b>32</b> - Closest Centroid: Blue (<b>37.7143</b>)</li>
+				<li>Point G: <b>40</b> - Closest Centroid: Blue (<b>37.7143</b>)</li>
+				<li>Point H: <b>43</b> - Closest Centroid: Blue (<b>37.7143</b>)</li>
+				<li>Point I: <b>44</b> - Closest Centroid: Blue (<b>37.7143</b>)</li>
+				<li>Point J: <b>48</b> - Closest Centroid: Blue (<b>37.7143</b>)</li>
+				<li>Point K: <b>81</b> - Closest Centroid: Green (<b>82.5</b>)</li>
+				<li>Point L: <b>84</b> - Closest Centroid: Green (<b>82.5</b>)</li>
+				<br>Yellow Centroid:<br>
+				<ul class = "shift">
+					<li>(0 + 9 + 13) ÷ 3 = <mark><b>7.3333</b></mark></li>
+				</ul>
+				Blue Centroid:<br>
+				<ul class = "shift">
+					<li>(27 + 30 + 32 + 40 + 43 + 44 + 48) ÷ 7 = <mark><b>37.7143</b></mark></li>
+				</ul>
+				Green Centroid:<br>
+				<ul class = "shift">
+					<li>(81 + 84) ÷ 2 = <mark><b>82.5</b></mark></li>
+				</ul>
+			</div>
+			<div class = "pic6">
+				<img src = "images/cluster5.png" class = "pic" width = "100%" alt = "">
+			</div>
+		</div>
+		<br>
+		<div class = "convergence">
+			<div class = "explain7">
+				<div class = "text">Convergence</div>
+				Since the centroids stopped moving, we have reached convergence. The three clusters can be seen on the number line. 
+				<br><br>The same logic and algorithm was used to write the 2-dimensional version. The number of clusters K used in the example was just an arbitrary number. As mentioned above, K is usually chosen using strategies like the elbow method which takes the sum of squared distances from each data point to its centroid to get the Within Cluster Sums of Squares (WSS). A plot of WSS vs number of clusters K can be made and usually the ideal K to select is the point in the graph which resembles an "elbow".<br><br>
+				Because K-means Clustering identifies clusters within data that may not have any obvious labels or relation to each other, it can be useful in finding hidden groups in complicated data. 
+			</div>
+			<div class = "pic7">
+				<img src = "images/converge.png" class = "pic" width = "100%" alt = "">
+			</div>
 		</div>
 	</body>
 </html>
