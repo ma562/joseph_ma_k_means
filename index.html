@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" style = "scroll-behavior: smooth;">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale = 1.0">
+		<title>Raw K-means Clustering</title>
+		<link rel="icon" href="images/jm.png">
+		<link rel = "stylesheet" href="style.css">
+	</head>
+
+	<nav class = "navbar">
+		<div class = "max-width">
+			<div class = "logo"><a href="#">Raw K-means Clustering</a></div>
+			<ul class = "menu">
+				<li><a href="https://ma562.github.io/joseph_ma/#projects">Go Back</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<body>
+		<div class = "top_info">
+			<div class = "vid1">
+				<video width = "95%" height = "95%" controls>
+					<source src = "videos/clustering.mp4" type = "video/mp4">
+				</video>
+			</div>
+			<div class = "information">
+				<div class = "text">About</div>
+				Originally written to help visualize the algorithm during my summer internship at Preface, this python program uses the random library to generate random coordinates on a plot and Matplotlib to visualize the data. No other libraries were used.<br><br>
+				
+				<b><a href = "https://en.wikipedia.org/wiki/K-means_clustering" target = "_blank">K-means Clustering</a></b> is a type of machine learning algorithm which attempts to group data into clusters using unsupervised learning. The demo video shows 1000 points being randomly placed on a 100 by 100 coordinate plane and being grouped into 3 clusters.<br><br>
+
+				Click <b><a href = "https://colab.research.google.com/drive/1S5pPYPP7PmFtYkAM9OL5teKKtShp0O0Z?usp=sharing" target = "_blank"> here </a></b> for the 2-dimensional version which is shown in the video. (To run the program on Google Colab simply click <b>Runtime</b> --> <b>Run all</b>)
+				<br><br>
+				Click <b><a href = "starkTower.stl" download= "" target = "_self"> here </a></b> for the 1-dimensional version which will be used in the explanation below. 
+				<br><br>
+			</div>
+		</div>
+		<br>
+		<div class = "explanation">
+			<div class = "explain">
+				<div class = "text">A short explanation</div>
+				The program is written such that 12 points are randomly generated along an interval between 0 and 100. The goal of the K-means Clustering algorithm is to group these points into 3 clusters without any information except their locations. The locations are as follows:
+				<ul class = "shift">
+					<li>Point A: <b>0</b></li>
+					<li>Point B: <b>1</b></li>
+					<li>Point C: <b>14</b></li>
+					<li>Point D: <b>24</b></li>
+					<li>Point E: <b>25</b></li>
+					<li>Point F: <b>29</b></li>
+					<li>Point G: <b>50</b></li>
+					<li>Point H: <b>58</b></li>
+					<li>Point I: <b>61</b></li>
+					<li>Point J: <b>66</b></li>
+					<li>Point K: <b>81</b></li>
+					<li>Point L: <b>93</b></li>
+				</ul>
+			</div>
+			<div class = "pic1">
+				<img src = "images/cluster1.png" class = "pic" width = "100%" alt = "">
+			</div>	
+		</div>
+	</body>
+</html>
