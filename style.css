@@ -317,18 +317,18 @@
 }
 
 @media (max-width: 1100px){
-	.explain3, .explain4, .explain5, .explain2, .information, .explain {
+	.explain6, .explain7, .explain3, .explain4, .explain5, .explain2, .information, .explain {
 		padding: 15px;
 	}
 
-	.pic3, .pic4, .pic5, .explain3, .explain4, .explain5, .explain2, .pic2, .vid1, .information, .explain, .pic1 {
+	.explain6, .explain7, .pic6, .pic7, .pic3, .pic4, .pic5, .explain3, .explain4, .explain5, .explain2, .pic2, .vid1, .information, .explain, .pic1 {
 		flex: 100%;
 		left: 0%;
 		right: 0%;
 		margin-bottom: 15px;
 	}
 
-	.pic3, .pic4, .pic5, .pic2, .pic1 {
+	.pic6, .pic7, .pic3, .pic4, .pic5, .pic2, .pic1 {
 		margin-top: 15px;
 	}
 	.top_info {
