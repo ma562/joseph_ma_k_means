@@ -334,9 +334,8 @@
 	.top_info {
 		top: 80px;
 	}
-
 	.navbar .menu li a{
-		font-size: 12px;
+		font-size: 10px;
 	}
 	.text {
 		font-size: 18px;
@@ -346,7 +345,7 @@
 @media (max-width: 750px) {
 	.navbar .logo a{
 		color: #fff;
-		font-size: 7px;
+		font-size: 12px;
 		font-weight: 600;
 	}
 }
